@@ -1,9 +1,19 @@
 #include <stdio.h>
 
+#ifdef KYH
+#define NUMBER    100
+#else
+#define NUMBER    1
+#endif
+
 int main(void)
+/*
+void main(void)
+ */
 {
     int num;
-    num = 1;
+    
+    num = NUMBER;
 
     printf("나는 단순한");
     printf("컴퓨터이다.\n");
