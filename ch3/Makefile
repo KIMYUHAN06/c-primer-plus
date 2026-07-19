@@ -1,14 +1,14 @@
 default: build
 
 build:
-	gcc -o $(NAME) $(TARGET).c
+	gcc -o ./output/$(TARGET) $(TARGET).c
 
 
 run: build
-	./$(NAME)
+	./output/$(TARGET)
 
 exec: 
-	./$(NAME)
+	./output/$(TARGET)
 
 clean:
-	rm $(TARGET).c
+	rm ./output/$(TARGET)
