@@ -17,6 +17,9 @@ int main(void)
     printf("%*d %*d\n",
            (int)strlen(firstname), (int)strlen(firstname),
            (int)strlen(name), (int)strlen(name));
+    printf("%*d %*d\n",
+           -(int)strlen(firstname), (int)strlen(firstname),
+           -(int)strlen(name), (int)strlen(name));
 
     return 0;
 }
