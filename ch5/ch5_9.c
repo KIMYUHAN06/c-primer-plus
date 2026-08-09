@@ -5,14 +5,15 @@ void Temperature( double farenheit);
 
 int main(void)
 {
+    
     double farenheit;
     
     printf("화씨온도를 입력하세요: ");
     
-    while (scanf("%lf", &farenheit) == 1)
+    while (scanf("%lf", &farenheit)==1)
     {
-    	Temperature(farenheit);
-    	printf("\n 화씨온도를 입력하세요:");
+        Temperature(farenheit);
+        printf("\n 화씨온도를 입력하세요:");
     }
     return 0;
 }
