@@ -1,17 +1,19 @@
 #include <stdio.h>
 #include <string.h>
 
+#define MAX_LENGTH    255
+
 int main(void)
 {
-    char ch[254];
+    char ch[MAX_LENGTH];
     
     scanf("%s", ch);
     
-    int size;
+    int index;
     
-    for (size = strlen(ch) - 1 ; size>=0; size--)
+    for (index = strlen(ch) - 1 ; index>=0; index--)
     {
-        printf("%c", ch[size]);
+        printf("%c", ch[index]);
     }
     
     printf("\n");
