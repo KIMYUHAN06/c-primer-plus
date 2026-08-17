@@ -1,7 +1,7 @@
 #include <stdio.h>
+#define LINENUM 5
 
 void printspace(int n);
-#define LINENUM 5
 
 int main(void)
 {
