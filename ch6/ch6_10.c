@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void sum(int snum, int bnum);
+int squaresum(int snum, int bnum);
 
 int main(void)
 {
@@ -11,7 +11,8 @@ int main(void)
 
     while (snum < bnum)
     {
-        sum(snum, bnum);
+        printf("%d부터 %d까지, 제곱들의 합은 %d",
+           snum*snum, bnum*bnum, squaresum(snum, bnum));
 
         printf("\n다음 하한과 상한을 입력하시오: ");
         scanf("%d %d", &snum, &bnum);
@@ -22,7 +23,7 @@ int main(void)
     return 0;
 }
 
-void sum(int snum, int bnum)
+int squaresum(int snum, int bnum)
 {
     int squaresum = 0;
     int n;
@@ -31,7 +32,6 @@ void sum(int snum, int bnum)
     {
         squaresum += n*n;
     }
-
-    printf("%d부터 %d까지, 제곱들의 합은 %d",
-           snum*snum, bnum*bnum, squaresum);
+           
+    return squaresum;
 }
