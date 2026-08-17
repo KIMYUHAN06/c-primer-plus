@@ -1,40 +1,37 @@
 #include <stdio.h>
 
-void sum(void);
+void sum(int snum, int bnum);
 
-int main(void);
+int main(void)
 {
     int snum, bnum;
-    int squaesum = 0;
-    
-    printf("정수로 상한과 하한을 입력하시오:");
-    sum();
+
+    printf("정수로 하한과 상한을 입력하시오: ");
+    scanf("%d %d", &snum, &bnum);
+
     while (snum < bnum)
     {
-        printf("다음 하한과 상한을 입력하시오:");
-        sum();
-        squaesum = 0;
+        sum(snum, bnum);
+
+        printf("\n다음 하한과 상한을 입력하시오: ");
+        scanf("%d %d", &snum, &bnum);
     }
-    
-    
-    printf("종료!")
-    
+
+    printf("종료!\n");
+
     return 0;
 }
 
-void sum(void);
+void sum(int snum, int bnum)
 {
-    scanf("%d %d", &snum, &bnum);
-    
-    printf("\n");
-    
-    int n = snum;
-    
-    for (bnum>=n; n++)
+    int squaresum = 0;
+    int n;
+
+    for (n = snum; n <= bnum; n++)
     {
-        printf("%d \n",n);
         squaresum += n*n;
     }
-    
-    printf("%d부터 %d까지, 제곱들의 합은 %d", snum*snum, bnum*bnum, squaresum);
+
+    printf("%d부터 %d까지, 제곱들의 합은 %d",
+           snum*snum, bnum*bnum, squaresum);
 }
