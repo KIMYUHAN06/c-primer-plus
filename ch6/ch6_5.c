@@ -1,5 +1,4 @@
 #include <stdio.h>
-#define LINENUM 5
 
 void printspace(int n);
 
@@ -7,25 +6,32 @@ int main(void)
 {
     char ch;
     int n;
-    int j = LINENUM;
+    int j;
+    int linenum;
     
-    for (n=LINENUM; n>0; n--)
+    
+    scanf("%c", &ch);
+    
+    linenum = (ch - 'A')+1;
+        
+    j = linenum;
+    
+    for (n=linenum; n>0; n--)
     {
         printspace(n-1);
         ch = 'A';
-        while (j>=n)
+        printf("%c", ch);
+        while (j>n)
         {
-            printf("%c", ch);
             j--;
             ch++;
+            printf("%c", ch);
         }
-        ch--;
-        j++;
-        while (j<LINENUM)
+        while (j<linenum)
         {
+            j++;
             ch--;
             printf("%c", ch);
-            j++;
         }
         printf("\n");
     }
