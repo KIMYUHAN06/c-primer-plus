@@ -9,7 +9,6 @@ int main(void)
     int j;
     int linenum;
     
-    
     scanf("%c", &ch);
     
     linenum = (ch - 'A')+1;
