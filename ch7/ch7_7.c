@@ -1,10 +1,5 @@
 #include <stdio.h>
-#define MINIMUM_WAGE                 10.00 // 기본급, 최저시급
-#define OVERTIME_PAY                 1.5*MINIMUM_WAGE // 초과근무수당 (40시간 초과한 노동)
-#define INCOME_TAX_RATE_FIRST_300    0.15 //처음 300달러까지 소득세율
-#define INCOME_TAX_RATE_NEXT_150     0.20 //다음 150달러까지 소득세율
-#define INCOME_TAX_RATE_ELSE         0.25 //나머지 소득세율
-
+#include "income.h"
 
 int main(void)
 {
@@ -17,9 +12,9 @@ int main(void)
     printf("일주일동안 노동한 시간을 입력하시오:");
     scanf("%d", &work_time);
     if (work_time<=40)
-        gross_pay = work_time*MINIMUM_WAGE;
+        gross_pay = work_time*MINIMUM_WAGE_3;
     else
-        gross_pay = 40*MINIMUM_WAGE+(work_time-40)*OVERTIME_PAY;
+        gross_pay = 40*MINIMUM_WAGE_3+(work_time-40)*MINIMUM_WAGE_3*OVERTIME_PAY;
         
     if (gross_pay<=300)
         taxes=gross_pay*INCOME_TAX_RATE_FIRST_300;
