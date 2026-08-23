@@ -6,15 +6,15 @@ int main(void)
 {
     int input_num;
     int divide_num;
-    int num;
+    int flag;
 
     while (scanf("%d", &input_num) == 1)
     {
         for (divide_num = 2; divide_num <= input_num; divide_num++)
         {
-            num = divide(divide_num);
+            flag = divide(divide_num);
 
-            if (num == 1)
+            if (flag == 1)
             {
                 printf("%d ", divide_num);
             }
