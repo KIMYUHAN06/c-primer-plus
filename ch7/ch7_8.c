@@ -4,22 +4,22 @@
 #define MINIMUM_WAGE_3    10.00 //기본급 3
 #define MINIMUM_WAGE_4    11.20 //기본급 4
 #define OVERTIME_PAY    1.5 // 초과근무수당 (40시간 초과한 노동)
-#define INCOME_TAX_RATE_FIRST_300    15 //처음 300달러까지 소득세율
-#define INCOME_TAX_RATE_NEXT_150    20 //다음 150달러까지 소득세율
-#define INCOME_TAX_RATE_ELSE    25 //나머지 소득세율
+#define INCOME_TAX_RATE_FIRST_300    0.15 //처음 300달러까지 소득세율
+#define INCOME_TAX_RATE_NEXT_150    0.20 //다음 150달러까지 소득세율
+#define INCOME_TAX_RATE_ELSE    0.25 //나머지 소득세율
 
 
 int main(void)
 {
     int choice = 0;
-    double minimumwage;
+    double minimumwage = 0;
     int work_time;
     double gross_pay; // 총소득
     double taxes; // 세금
     double net_pay; //총소득
     
     
-    while (choice<5)
+    while ( (choice < 5) || (minimumwage == 0) )
     {
         printf("**********************************************************\n");
         printf("자신의 기본급에 해당하는 번호를 선택하시오(끝내려면 5번을 선택하시오) :\n");
@@ -43,6 +43,8 @@ int main(void)
             case 4:
                 minimumwage = MINIMUM_WAGE_4;
                 break;
+            default:
+                break;
         }
     }
     
@@ -55,11 +57,11 @@ int main(void)
         gross_pay = 40*minimumwage+(work_time-40)*minimumwage*OVERTIME_PAY;
         
     if (gross_pay<=300)
-        taxes=gross_pay*0.15;
+        taxes=gross_pay*INCOME_TAX_RATE_FIRST_300;
     else if (gross_pay>300 && gross_pay<=450)
-        taxes=300*0.15+(gross_pay-300)*0.2;
+        taxes=300*INCOME_TAX_RATE_FIRST_300+(gross_pay-300)*INCOME_TAX_RATE_NEXT_150;
     else
-        taxes=300*0.15+150*0.2+(gross_pay-450)*0.25;
+        taxes=300*INCOME_TAX_RATE_FIRST_300+150*INCOME_TAX_RATE_NEXT_150+(gross_pay-450)*INCOME_TAX_RATE_ELSE;
     
     net_pay = gross_pay-taxes;
     
