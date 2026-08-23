@@ -6,7 +6,7 @@
 #define DELIVER_2 14.00 //5파운드 이상 20파운드 미만
 #define DELIVER_3 0.50 //20파운드 이상 파운드당 추가비용
 
-int pound(int input);
+int pound(void);
 
 int main(void)
 {
@@ -20,30 +20,35 @@ int main(void)
     
     char ch;
     
-    printf("원하는 야채를 선택하세요\n");
-    printf("a. 아티초크 / b. 비트 / c. 당근 / q. 계산\n");
-    while (scanf("%c",&ch)==1 && ch!='q')
+
+    while (1)
     {
-        switch(ch)
+        printf("원하는 야채를 선택하세요\n");
+        printf("a. 아티초크 / b. 비트 / c. 당근 / q. 계산\n");
+        
+        scanf("%c",&ch);
+        
+        if (ch !='q')
         {
-            case 'a':
-                input = pound(input);
-                artichokes_pound += input;
-                break;
-            case 'b':
-                input = pound(input);
-                beets_pound += input;
-                break;
-            case 'c':
-                input = pound(input);
-                carrots_pound += input;
-                break;
-            default:
-               printf("a,b,c중 하나를 입력하세요\n");
-               break;
+            input = pound();
+            switch(ch)
+            {
+                case 'a':
+                    artichokes_pound += input;
+                    break;
+                case 'b':
+                    beets_pound += input;
+                    break;
+                case 'c':
+                    carrots_pound += input;
+                    break;
+                default:
+                    printf("a,b,c중 하나를 입력하세요\n");
+                    break;
+            }
         }
-        
-        
+        else
+            break;
     }
     
     
@@ -87,11 +92,13 @@ int main(void)
 }
 
 
-int pound(int input)
+int pound(void)
 {
+    int input;
     
     printf("원하는 양을 파운드 단위로 입력하세요 :");
     scanf("%d", &input);
+    getchar();
     
     return input;
     
