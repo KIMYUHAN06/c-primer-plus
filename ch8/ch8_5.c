@@ -11,7 +11,7 @@ int main(void)
     printf("내 추측이 맞으면 y를 입력하고,\n");
     printf("내 추측보다 크면 b, 작으면 s을 입력하시오.\n");
 
-    while (low <= high)
+    while (low < high)
     {
         guess = (low + high) / 2;
 
@@ -37,8 +37,8 @@ int main(void)
         }
     }
 
-    if (low > high)
-        printf("입력이 올바르지 않은 것 같습니다.\n");
-
+    if (low == high)
+        printf("거짓말하지 마세요\n");
+        
     return 0;
 }
